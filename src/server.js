@@ -1,16 +1,13 @@
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const router = require('./routes');
 
 const app = express();
 
 app.use(helmet());
-app.use(morgan(':remote-addr'))
-app.use(express.json())
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(router);
 
-app.get('/test',(req,res)=>{
-  return res.json({msg:'ok'})
-})
-
-
-module.exports = app
+module.exports = app;
