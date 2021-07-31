@@ -4,11 +4,11 @@ const axios = require('axios');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  
+
                                   //https://httpbin.org/ip     
   const reponse = await axios.get('https://api.ipify.org/');
 
-  res.json(reponse.data.origin);
+  res.json(reponse.data);
 });
 
 
